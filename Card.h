@@ -7,6 +7,7 @@ pointer will point to its owner,while the fd pointer points to its owner's
 next card,if it is the last card,the fd pointer will point to NULL.When 
 it is in the equipment-position,the same.
 */
+#include <cstdio>
 #define inUnusedBin 1
 #define inHand 2
 #define inJudgement 3
@@ -23,9 +24,29 @@ class Card
     short state;
     // int kind;
     Card();
+    void show();
 };
 Card::Card()
 {
   fd=0;
   bk=0;
+}
+void Card::show()
+{
+  switch (varity)
+  {
+    case 1:
+      printf("hongtao");
+      break;
+    case 2:
+      printf("heitao");
+      break;
+      case 3:
+      printf("fangkuai");
+      break;
+    default:
+      printf("hongxing");
+      break;
+  }
+  printf("%d\n",number);
 }
